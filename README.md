@@ -70,10 +70,17 @@ Deployed to the **Ritual chain** (chain id `1979`, `https://rpc.ritualfoundation
 
 | | |
 |---|---|
-| Contract address | [`0x36E39356CE13bd2d3981A6d2bB1A06E3c13EC8ad`](https://explorer.ritualfoundation.org/address/0x36E39356CE13bd2d3981A6d2bB1A06E3c13EC8ad) |
-| Deployment tx hash | [`0xcfd4fa8a70bc9c9c0affb5bffe83d0f9d92525896ec58dac6363f412f1690246`](https://explorer.ritualfoundation.org/tx/0xcfd4fa8a70bc9c9c0affb5bffe83d0f9d92525896ec58dac6363f412f1690246) |
-| Block | `39809216` |
+| Contract address | [`0xE83982a73D082F92B2f4760c7181639a64a90999`](https://explorer.ritualfoundation.org/address/0xE83982a73D082F92B2f4760c7181639a64a90999) |
+| Deployment tx hash | [`0xd5994c1275c2db8c805839d4b99ce059902831e242886c391352015c8305a68b`](https://explorer.ritualfoundation.org/tx/0xd5994c1275c2db8c805839d4b99ce059902831e242886c391352015c8305a68b) |
+| Block | `40213487` |
 | Deployer | `0xC1d3366B1Ed25E127A25bBACAC50F2b1E4Fb624b` |
+
+An earlier deployment at `0x36E39356CE13bd2d3981A6d2bB1A06E3c13EC8ad` (tx
+`0xcfd4fa8a70bc9c9c0affb5bffe83d0f9d92525896ec58dac6363f412f1690246`) still has live, correct
+bytecode, but that transaction later became unretrievable via `eth_getTransactionReceipt` /
+`eth_getTransactionByHash` (the block it was recorded in returned different, empty contents on
+re-query) — consistent with a reorg or receipt-history pruning on this chain rather than a failed
+deploy. The table above reflects the redeploy done to get a currently-verifiable tx hash.
 
 Deployed with `forge create` (Hardhat Ignition's interactive deploy UI didn't cooperate in a
 non-TTY environment; `forge create` compiles `AIJudge.sol` with the same solc version/`viaIR`
